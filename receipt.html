@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>B1 - Upload Receipt</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fafafa;
+      text-align: center;
+      padding: 50px;
+    }
+    input[type=file] {
+      margin: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h2>Upload Your Payment Receipt</h2>
+  <input type="file" id="receipt" accept="image/*">
+  <br>
+  <button onclick="sendReceipt()">Send Receipt</button>
+
+  <script>
+    function sendReceipt() {
+      const file = document.getElementById('receipt').files[0];
+      if (!file) return alert("Please select a file.");
+      alert("Your payment receipt has been received. Thank you!");
+      localStorage.removeItem("user");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
